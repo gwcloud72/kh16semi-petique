@@ -44,60 +44,61 @@ PETIQUE는 분양 게시판을 **단순 게시글이 아니라, 상태가 변하
 
 ## 🏗 Architecture
 
-![Architecture](docs/diagrams/architecture.png)
+| System Architecture |
+|---|
+| ![](docs/diagrams/architecture.png) |
 
-요청 흐름은 **Controller → Service(트랜잭션) → DAO(JdbcTemplate) → Oracle** 로 구성했습니다.  
-상태 전이(승인/완료)는 여러 테이블이 동시에 움직이기 때문에 서비스에서 트랜잭션 단위로 묶었습니다.
+
+프로젝트는 기본적인 MVC 구조로 구성했습니다.
+
+요청 흐름은  
+Controller → Service → DAO → Database 순서로 동작합니다.
+
+분양 승인이나 완료 처리처럼 여러 테이블이 함께 변경되는 작업은  
+Service 계층에서 트랜잭션으로 묶어 처리했습니다.
 
 ---
 
 ## 📊 ERD
 
-![ERD](docs/diagrams/erd.png)
 
-분양 기능은 아래 3가지 축으로 데이터가 연결됩니다.
+| ERD |
+|---|
+| ![](docs/diagrams/erd.png) |
+
+분양 기능은 아래 3축으로 데이터가 연결됩니다.
 
 - **BOARD**: 분양글(콘텐츠)
-- **BOARD_ANIMAL / ANIMAL**: 글과 동물의 연결, 소유자/종료 상태
-- **ADOPTION_APPLY**: 신청/승인/거절/완료 같은 “진행 상태” 기록
+- **ANIMAL / BOARD_ANIMAL**: 글-동물 연결 + 소유자/종료 상태
+- **ADOPTION_APPLY**: 신청/승인/거절/완료 같은 진행 상태
 
 ---
 
 ## 🧭 화면 흐름
 
-1) 분양 리스트(탭/필터/정렬/페이지네이션)
-![분양 리스트](docs/screenshots/01_adoption_list.png)
+| 분양 리스트(탭/필터/정렬/페이지네이션) | 분양 상세(모집중) |
+|---|---|
+| ![](docs/screenshots/01_adoption_list.png) | ![](docs/screenshots/02_adoption_detail_open.png) |
 
-2) 분양 상세(모집중 상태)
-![분양 상세(OPEN)](docs/screenshots/02_adoption_detail_open.png)
+| 신청자 관리(승인/거절) | 분양 완료(종료 상태 반영) |
+|---|---|
+| ![](docs/screenshots/03_owner_manage_applicants.png) | ![](docs/screenshots/04_adoption_completed.png) |
 
-3) 신청자 관리(승인/거절)
-![신청자 관리](docs/screenshots/03_owner_manage_applicants.png)
+| 분양 완료 후 후기 작성 동선 | 분양 후기 작성 |
+|---|---|
+| ![](docs/screenshots/09_adoption_detail_review.png) | ![](docs/screenshots/10_review_write.png) |
 
-4) 분양 완료(종료 상태 반영)
-![분양 완료](docs/screenshots/04_adoption_completed.png)
+| 마이페이지 — 분양 신청 내역 | 마이페이지 — 포인트 내역 |
+|---|---|
+| ![](docs/screenshots/05_mypage_applies.png) | ![](docs/screenshots/06_mypage_points.png) |
 
-5) 분양 완료 후 후기 작성 동선
-![분양 상세(후기 작성)](docs/screenshots/09_adoption_detail_review.png)
+| 마이페이지 — 알림 | 회원 프로필 |
+|---|---|
+| ![](docs/screenshots/11_mypage_notifications.png) | ![](docs/screenshots/07_member_profile.png) |
 
-6) 분양 후기 작성 화면
-![후기 작성](docs/screenshots/10_review_write.png)
-
-7) 마이페이지 — 분양 신청 내역
-![마이페이지 신청 내역](docs/screenshots/05_mypage_applies.png)
-
-8) 마이페이지 — 포인트 내역
-![마이페이지 포인트](docs/screenshots/06_mypage_points.png)
-
-9) 마이페이지 — 알림
-![마이페이지 알림](docs/screenshots/11_mypage_notifications.png)
-
-10) 회원 프로필
-![회원 프로필](docs/screenshots/07_member_profile.png)
-
-11) 메인
-![메인](docs/screenshots/08_main.png)
-
+| 메인 |
+|---|
+| ![](docs/screenshots/08_main.png) |
 ---
 
 ## 📄 문서
