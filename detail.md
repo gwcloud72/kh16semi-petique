@@ -540,7 +540,7 @@ int end = page * pageSize;
 
 ```java
 @Transactional
-
+```
 ### 8-3. 분양 상태 판단 기준 통일
 
 **상황**
