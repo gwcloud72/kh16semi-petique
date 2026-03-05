@@ -1,0 +1,204 @@
+/* donation.css - 후원/포인트 UI 스타일 */
+.donation-container {
+	max-width: 850px;
+}
+
+.reward-toast {
+	padding: 12px 14px;
+	border-radius: 12px;
+	border: 1px solid #e6d2b5;
+	background: #fff6e8;
+	color: #7b4e36;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+.point-zone {
+	padding: 20px;
+	border: 1px solid #e6d2b5;
+	border-radius: 13px;
+	background-color: #fff;
+}
+
+.point-label {
+	font-size: 0.95em;
+	font-weight: 700;
+	color: #7b4e36;
+	margin-bottom: 8px;
+}
+
+.point-value {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.point-number {
+	font-size: 26px;
+	font-weight: 800;
+	color: #5b3a29;
+}
+
+.point-use {
+	margin-left: auto;
+	border: 0;
+	border-radius: 999px;
+	padding: 10px 14px;
+	font-weight: 700;
+	background-color: #a67c52;
+	color: #fff;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.point-use:hover {
+	background-color: #8b623a;
+}
+
+.invite-card {
+	margin-top: 14px;
+	padding: 18px 20px;
+	border: 1px solid #e6d2b5;
+	border-radius: 13px;
+	background-color: #fff;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.invite-left {
+	align-items: center;
+	gap: 12px;
+}
+
+.invite-icon {
+	font-size: 22px;
+	color: #7b4e36;
+}
+
+.invite-title {
+	font-weight: 800;
+	color: #5b3a29;
+	margin-bottom: 2px;
+}
+
+.invite-desc {
+	font-size: 0.95em;
+	color: #7b4e36;
+}
+
+.btn-copy {
+	white-space: nowrap;
+}
+
+.mission-card {
+	margin-top: 14px;
+	padding: 18px 20px;
+	border: 1px solid #e6d2b5;
+	border-radius: 13px;
+	background-color: #fff;
+}
+
+.mission-head {
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.mission-title {
+	font-weight: 800;
+	color: #5b3a29;
+	font-size: 18px;
+}
+
+.mission-flag {
+	color: #7b4e36;
+}
+
+.mission-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 8px;
+	border-radius: 10px;
+}
+
+.mission-row + .mission-row {
+	border-top: 1px solid #f0e2cf;
+}
+
+.mission-row.is-highlight {
+	background: #fff6e8;
+}
+
+.mission-icon {
+	width: 42px;
+	text-align: center;
+	font-size: 20px;
+	color: #7b4e36;
+	flex: 0 0 auto;
+}
+
+.mission-badge {
+	width: 62px;
+	font-weight: 800;
+	color: #5899ff;
+	flex: 0 0 auto;
+}
+
+.mission-link {
+	flex: 1 1 auto;
+	font-weight: 700;
+}
+
+.mission-link a {
+	color: #5b3a29;
+	text-decoration: none;
+}
+
+.mission-link a:hover {
+	text-decoration: underline;
+}
+
+.mission-reward {
+	flex: 0 0 auto;
+	color: #7b4e36;
+	white-space: nowrap;
+	font-weight: 700;
+}
+
+.reward-label {
+	font-weight: 700;
+	opacity: 0.9;
+}
+
+.reward-value {
+	margin-left: 4px;
+	font-weight: 800;
+	color: #5b3a29;
+}
+
+.donate-note {
+	margin-top: 14px;
+	padding: 18px 20px;
+	border: 1px dashed #e6d2b5;
+	border-radius: 13px;
+	background: #fff;
+}
+
+.note-title {
+	font-weight: 800;
+	color: #5b3a29;
+	margin-bottom: 8px;
+}
+
+.note-text {
+	color: #7b4e36;
+	margin-bottom: 6px;
+}
+
+.note-link {
+	color: #5b3a29;
+	font-weight: 700;
+}

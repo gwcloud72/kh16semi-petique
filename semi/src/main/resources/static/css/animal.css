@@ -1,0 +1,47 @@
+/* animal.css - 동물 등록/목록/상세 화면 스타일 */
+.label{
+	display:block;
+	font-weight:800;
+	margin-bottom:6px;
+	color:#5b3a29;
+}
+
+.animal-textarea{
+	resize:vertical;
+	min-height:140px;
+}
+
+.animal-detail-card{
+	background-color:#fffaf7;
+	border:1px solid #e0d2c2;
+	border-radius:16px;
+	padding:18px;
+}
+
+.animal-detail-image{
+	width:140px;
+	height:140px;
+	object-fit:contain;
+	object-position:center;
+	border-radius:16px;
+	border:1px solid #e0d2c2;
+	background-color:#ffffff;
+	display:block;
+}
+
+.badge.badge-positive{
+	background-color:#e7f7f6;
+	border-color:#7ccac6;
+	color:#1b6b68;
+}
+
+.badge.badge-neutral{
+	background-color:#f7f3ed;
+	border-color:#d3bfa6;
+	color:#5b3a29;
+}
+
+.table td .btn{
+	padding:0.35em 0.7em;
+	min-width:auto;
+}

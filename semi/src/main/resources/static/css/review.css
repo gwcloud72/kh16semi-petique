@@ -1,0 +1,33 @@
+/* review.css - 후기 게시판 스타일 */
+.review-title {
+	font-weight: 800;
+	color: #5b3a29;
+}
+
+.review-reply {
+	font-weight: 800;
+}
+
+.review-writer {
+	font-weight: 700;
+	color: #5b3a29;
+}
+
+.review-wtime {
+	color: #8c6d5b;
+	font-size: 0.9em;
+}
+
+.score-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background-color: #F35F4C;
+	border: 1px solid #2d3436;
+	color: #fff;
+	border-radius: 10px;
+	padding: 0 0.4em;
+	margin-left: auto;
+	height: fit-content;
+	white-space: nowrap;
+}

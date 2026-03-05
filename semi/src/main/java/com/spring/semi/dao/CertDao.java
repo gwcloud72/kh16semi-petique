@@ -1,0 +1,52 @@
+package com.spring.semi.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.spring.semi.dto.CertDto;
+import com.spring.semi.mapper.CertMapper;
+
+
+/**
+ * CertDao - DB 접근을 담당하는 DAO.
+ */
+@Repository
+public class CertDao {
+	@Autowired
+	private CertMapper certMapper;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+
+	public void insert(CertDto certDto) {
+		String sql = "insert into cert(cert_email, cert_number) values(?, ?)";
+		Object[] params = {certDto.getCertEmail(), certDto.getCertNumber()};
+		jdbcTemplate.update(sql, params);
+	}
+
+
+	public boolean update(CertDto certDto) {
+		String sql = "update cert set cert_number=?, cert_time=systimestamp where cert_email=?";
+		Object[] params = {certDto.getCertNumber(), certDto.getCertEmail()};
+		return jdbcTemplate.update(sql, params) > 0;
+	}
+
+
+	public CertDto selectOne(String certEmail) {
+		String sql = "select * from cert where cert_email = ?";
+		Object[] params = {certEmail};
+		List<CertDto> list = jdbcTemplate.query(sql, certMapper, params);
+		return list.isEmpty() ? null : list.get(0);
+	}
+
+
+	public boolean delete(String certEmail) {
+		String sql = "delete from cert where cert_email = ?";
+		Object[] params = {certEmail};
+		return jdbcTemplate.update(sql, params) > 0;
+	}
+
+}

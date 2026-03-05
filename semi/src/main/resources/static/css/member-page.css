@@ -1,0 +1,243 @@
+/* member-page.css - 마이페이지/프로필/회원정보 화면 스타일 */
+.member-page{
+	padding:10px 0 40px;
+}
+
+.member-hero{
+	display:flex;
+	gap:18px;
+	align-items:stretch;
+	background-color:#fffaf7;
+	border:1px solid #e0d2c2;
+	border-radius:18px;
+	padding:18px;
+}
+
+.member-hero__avatar{
+	width:140px;
+	text-align:center;
+}
+
+.member-avatar{
+	width:120px;
+	height:120px;
+	border-radius:18px;
+	border:1px solid #e0d2c2;
+	/* 프로필 이미지는 잘림보다 '전체 보임'이 우선 */
+	object-fit:contain;
+	object-position:center;
+	background-color:#fff;
+	display:block;
+}
+
+.member-hero__avatarActions{
+	margin-top:10px;
+	display:flex;
+	gap:8px;
+	justify-content:center;
+	flex-wrap:wrap;
+}
+
+.member-hero__info{
+	flex:1;
+	min-width:0;
+}
+
+.member-hero__title{
+	display:flex;
+	gap:10px;
+	align-items:center;
+}
+
+.member-hero__meta{
+	margin-top:12px;
+	display:flex;
+	flex-direction:column;
+	gap:6px;
+}
+
+.meta-row{
+	display:flex;
+	gap:10px;
+	align-items:flex-start;
+}
+
+.meta-label{
+	width:70px;
+	font-weight:800;
+	color:#5b3a29;
+	flex:0 0 auto;
+}
+
+.meta-value{
+	flex:1;
+	min-width:0;
+	word-break:break-word;
+}
+
+.member-hero__stats{
+	margin-top:14px;
+	display:flex;
+	gap:12px;
+	flex-wrap:wrap;
+}
+
+.stat{
+	background-color:#ffffff;
+	border:1px solid #e0d2c2;
+	border-radius:14px;
+	padding:10px 12px;
+	min-width:170px;
+}
+
+.stat__label{
+	font-size:12px;
+	color:#7a5a45;
+}
+
+.stat__value{
+	font-size:18px;
+	font-weight:900;
+	color:#4a2f22;
+	margin-top:2px;
+}
+
+.member-hero__actions{
+	width:170px;
+	display:flex;
+	flex-direction:column;
+	gap:8px;
+}
+
+.member-tabs{
+	margin-top:14px;
+	display:flex;
+	gap:8px;
+	flex-wrap:wrap;
+}
+
+.member-tab{
+	display:inline-flex;
+	gap:8px;
+	align-items:center;
+	padding:10px 12px;
+	border-radius:999px;
+	border:1px solid #d3bfa6;
+	background-color:#ffffff;
+	color:#5b3a29;
+	font-weight:800;
+}
+
+.member-tab.on{
+	background-color:#7a563f;
+	border-color:#7a563f;
+	color:#ffffff;
+}
+
+.member-tab .count{
+	padding:2px 8px;
+	border-radius:999px;
+	background-color:#f7f3ed;
+	border:1px solid #e0d2c2;
+	font-weight:900;
+	color:#5b3a29;
+}
+
+.member-tab.on .count{
+	background-color:rgba(255,255,255,0.18);
+	border-color:rgba(255,255,255,0.25);
+	color:#ffffff;
+}
+
+.member-panel{
+	margin-top:14px;
+	background-color:#fffaf7;
+	border:1px solid #e0d2c2;
+	border-radius:18px;
+	padding:16px;
+}
+
+.member-search{
+	display:flex;
+	gap:10px;
+	align-items:center;
+	flex-wrap:wrap;
+}
+
+.panel-actions{
+	margin-top:12px;
+	display:flex;
+	justify-content:flex-end;
+	gap:10px;
+}
+
+.badge.badge-positive{
+	background-color:#e7f7f6;
+	border-color:#7ccac6;
+	color:#1b6b68;
+}
+
+.badge.badge-neutral{
+	background-color:#f7f3ed;
+	border-color:#d3bfa6;
+	color:#5b3a29;
+}
+
+
+.badge.badge-negative{
+	background-color:#fbeeee;
+	border-color:#e0a1a1;
+	color:#8a1f1f;
+}
+
+/* 프로필 화면의 작은 썸네일(동물 사진)도 잘리지 않게 표시 */
+.member-page .thumb-60{
+	object-fit:contain;
+	object-position:center;
+	background-color:#fff;
+}
+
+.noti-delete-form{
+	display:inline-block;
+	margin:0;
+}
+
+.noti-delete-btn{
+	margin-right:0;
+	white-space:nowrap;
+	min-width:64px;
+	padding:8px 14px;
+}
+@media (max-width: 900px){
+	.member-hero{
+		flex-direction:column;
+	}
+	.member-hero__avatar{
+		width:auto;
+		display:flex;
+		gap:14px;
+		align-items:center;
+		justify-content:flex-start;
+	}
+	.member-hero__avatarActions{
+		justify-content:flex-start;
+	}
+	.member-hero__actions{
+		width:auto;
+		flex-direction:row;
+		flex-wrap:wrap;
+	}
+}
+
+.point-amount {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.point-amount.pos {
+  color: #2e7d32;
+}
+
+.point-amount.neg {
+  color: #b03a2e;
+}

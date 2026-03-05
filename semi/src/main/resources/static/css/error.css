@@ -1,0 +1,86 @@
+/* error.css - 에러 페이지 스타일 */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Segoe UI", Arial, sans-serif;
+	background-color: #f4ede6;
+	color: #5b3a29;
+	margin: 0;
+	padding: 0;
+}
+
+.error-page {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+}
+
+.error-card {
+	text-align: center;
+	background: #fffefb;
+	padding: 36px 36px;
+	border-radius: 16px;
+	border: 1px solid #e6d4c3;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+	max-width: 640px;
+	width: 100%;
+}
+
+.error-image {
+	display: block;
+	margin: 0 auto 16px;
+	width: min(360px, 80vw);
+	height: auto;
+}
+
+.error-title {
+	font-size: 1.8rem;
+	color: #7e5a3c;
+	margin: 0 0 10px;
+	line-height: 1.25;
+}
+
+.error-desc {
+	font-size: 1.05rem;
+	margin: 0 0 18px;
+	line-height: 1.55;
+}
+
+.error-actions {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.btn-home,
+.btn-back {
+	display: inline-block;
+	padding: 12px 18px;
+	border-radius: 10px;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-home {
+	background-color: #7e5a3c;
+	color: #fffbf5;
+	border: 1px solid #7e5a3c;
+}
+
+.btn-home:hover {
+	background-color: #a67849;
+	border-color: #a67849;
+}
+
+.btn-back {
+	background-color: transparent;
+	color: #7e5a3c;
+	border: 1px solid #e6d4c3;
+}
+
+.btn-back:hover {
+	background-color: #f4ede6;
+	border-color: #d7c1ad;
+}

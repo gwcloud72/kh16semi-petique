@@ -1,0 +1,861 @@
+/* adoption.css - 분양 게시판(리스트/상세/프로세스/신청 관리) 스타일 */
+.form-label {
+	display: block;
+	font-size: 1.05rem;
+	font-weight: 800;
+	color: #5b3a29;
+	margin-bottom: 8px;
+}
+
+.adopt-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	justify-content: center;
+	padding: 6px 12px;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 800;
+	white-space: nowrap;
+	line-height: 1;
+	min-height: 28px;
+	box-sizing: border-box;
+}
+
+.adopt-status.open {
+	background-color: rgba(46, 204, 113, 0.14);
+	border: 1px solid rgba(46, 204, 113, 0.35);
+	color: #2e7d32;
+}
+
+.adopt-status.approved {
+	background-color: rgba(230, 126, 34, 0.14);
+	border: 1px solid rgba(230, 126, 34, 0.35);
+	color: #a67849;
+}
+
+.adopt-status.completed {
+	background-color: rgba(231, 76, 60, 0.14);
+	border: 1px solid rgba(231, 76, 60, 0.35);
+	color: #a93226;
+}
+
+.adoption-detail .animal-profile-image-wrapper {
+	display: flex;
+	justify-content: center;
+	margin: 10px 0 18px;
+}
+
+.adoption-detail .profile-img {
+	width: 220px;
+	height: 220px;
+	border-radius: 16px;
+	object-fit: contain;
+	object-position: center;
+	border: 1px solid #e6d4c3;
+	background-color: #fffefb;
+	display: block;
+}
+
+.adoption-detail .animal-summary-box {
+	background-color: #fffefb;
+	border: 1px solid #e6d4c3;
+	border-radius: 12px;
+	padding: 12px 14px;
+	margin: 14px 0;
+}
+
+.adoption-detail .animal-summary-title {
+	font-weight: 800;
+	margin-bottom: 8px;
+	color: #5b3a29;
+}
+
+.adoption-detail .apply-box {
+	margin-top: 18px;
+	background-color: #fffefb;
+	border: 1px solid #e6d4c3;
+	border-radius: 12px;
+	padding: 14px;
+}
+
+.adoption-detail .apply-title {
+	font-weight: 900;
+	color: #5b3a29;
+	margin-bottom: 10px;
+}
+
+.adoption-detail .apply-textarea {
+	width: 100%;
+	min-height: 90px;
+	resize: vertical;
+}
+
+.adoption-detail .apply-message {
+	margin-top: 10px;
+	font-size: 0.95rem;
+	font-weight: 700;
+}
+
+.adoption-detail .apply-message.ok {
+	color: #2e7d32;
+}
+
+.adoption-detail .apply-message.fail {
+	color: #a93226;
+}
+
+.adoption-detail .apply-table-wrapper {
+	margin-top: 10px;
+	overflow-x: auto;
+}
+
+.adoption-detail .apply-table {
+	width: 100%;
+	min-width: 760px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	font-size: 0.95rem;
+}
+
+.adoption-detail .apply-table th,
+.adoption-detail .apply-table td {
+	padding: 10px 10px;
+	border-bottom: 1px solid #e6d4c3;
+	text-align: left;
+	vertical-align: top;
+}
+
+
+.adoption-detail .apply-table th.col-status,
+.adoption-detail .apply-table td.col-status {
+	width: 92px;
+	text-align: center;
+	white-space: nowrap;
+	word-break: keep-all;
+	vertical-align: middle;
+}
+
+.adoption-detail .apply-table th.col-date,
+.adoption-detail .apply-table td.col-date {
+	width: 132px;
+	text-align: center;
+	white-space: nowrap;
+	word-break: keep-all;
+	vertical-align: middle;
+}
+
+.adoption-detail .apply-table th.col-action,
+.adoption-detail .apply-table td.col-action {
+	width: 170px;
+	text-align: center;
+	white-space: nowrap;
+	word-break: keep-all;
+	vertical-align: middle;
+}
+
+.adoption-detail .apply-table td:nth-child(2) {
+	word-break: break-word;
+	line-height: 1.45;
+}
+
+.adoption-detail .apply-status-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6px 10px;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 900;
+	white-space: nowrap;
+	min-width: 56px;
+	line-height: 1;
+	border: 1px solid transparent;
+}
+
+.adoption-detail .apply-status-badge.applied {
+	background-color: rgba(52, 152, 219, 0.12);
+	border-color: rgba(52, 152, 219, 0.3);
+	color: #2c5aa0;
+}
+
+.adoption-detail .apply-status-badge.approved {
+	background-color: rgba(46, 204, 113, 0.12);
+	border-color: rgba(46, 204, 113, 0.3);
+	color: #2e7d32;
+}
+
+.adoption-detail .apply-status-badge.rejected {
+	background-color: rgba(231, 76, 60, 0.12);
+	border-color: rgba(231, 76, 60, 0.3);
+	color: #a93226;
+}
+
+.adoption-detail .apply-status-badge.cancelled {
+	background-color: rgba(149, 165, 166, 0.14);
+	border-color: rgba(149, 165, 166, 0.35);
+	color: #4e4e4e;
+}
+
+.adoption-detail .apply-status-badge.completed {
+	background-color: rgba(155, 89, 182, 0.14);
+	border-color: rgba(155, 89, 182, 0.3);
+	color: #6c3483;
+}
+
+.adoption-detail .apply-status-badge.etc {
+	background-color: rgba(160, 120, 73, 0.1);
+	border-color: rgba(160, 120, 73, 0.25);
+	color: #6b4f34;
+}
+
+.adoption-detail .apply-action-cell {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.adoption-detail .apply-action-form {
+	margin: 0;
+}
+
+.adoption-detail .apply-action-cell .btn {
+	margin-right: 0;
+	padding: 8px 12px;
+	font-size: 0.9rem;
+	border-radius: 10px;
+	min-width: 64px;
+	white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.adoption-detail .action-buttons {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	margin-top: 18px;
+}
+
+.adoption-list-page .category-section {
+  margin-top: 10px;
+  border: 1px solid #d3bfa6;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.adoption-list-page .category-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e0d0c0;
+  flex-wrap: wrap;
+}
+
+.adoption-list-page .category-row:last-child {
+  border-bottom: none;
+}
+
+.adoption-list-page .all-view-and-search {
+  border-bottom: 2px solid #eed9c4;
+  padding-bottom: 14px;
+  margin-bottom: 6px;
+}
+
+.adoption-list-page .all-view-button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adoption-list-page .keyword-result {
+  font-size: 0.95rem;
+  color: #a97b5f;
+  font-weight: 700;
+}
+
+.adoption-list-page .group-title {
+  font-weight: 800;
+  color: #5b3a29;
+  font-size: 14px;
+  min-width: 84px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.adoption-list-page .header-group {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 2px 2px;
+  flex-grow: 1;
+}
+
+.adoption-list-page .header-group::-webkit-scrollbar {
+  height: 4px;
+}
+
+.adoption-list-page .header-group::-webkit-scrollbar-thumb {
+  background-color: #d3bfa6;
+  border-radius: 2px;
+}
+
+.adoption-list-page .header-group::-webkit-scrollbar-track {
+  background-color: #f4ede6;
+}
+
+.adoption-list-page .category-btn,
+.adoption-list-page .type-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 7px 14px;
+  border: 1px solid #c7a17a;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.adoption-list-page .category-btn {
+  background-color: #8b5e3c;
+  color: #fff;
+  border: 1px solid #8b5e3c;
+  font-weight: 800;
+}
+
+.adoption-list-page .category-btn:hover {
+  background-color: #a4724d;
+  transform: translateY(-1px);
+}
+
+.adoption-list-page .category-btn.active {
+  background-color: #5d3d26;
+  border-color: #c7a17a;
+}
+
+.adoption-list-page .type-btn {
+  background-color: #fffefb;
+  color: #8b5e3c;
+  font-weight: 600;
+}
+
+.adoption-list-page .type-btn:hover {
+  background-color: #f3eae1;
+  transform: translateY(-1px);
+}
+
+.adoption-list-page .type-btn.type-active {
+  background-color: #c7a17a;
+  color: #fff;
+  font-weight: 800;
+  border-color: #8b5e3c;
+}
+
+.adoption-list-page .sort-row {
+  justify-content: flex-end;
+  border-top: 1px solid #eed9c4;
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+.adoption-list-page .sort-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.adoption-list-page .sort-group .btn {
+  margin-right: 0;
+}
+
+.adoption-list-page .write-button-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.adoption-list-page .login-required a {
+  color: #7e5a3c;
+  font-weight: 800;
+}
+
+.adoption-list-page .empty-icons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.adoption-list-page .empty-icons i {
+  font-size: 2rem;
+  color: #a67c52;
+}
+
+.adoption-list-page .adoption-title-cell {
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.adoption-list-page .adoption-heart {
+  color: #ffb8a2;
+  margin-right: 6px;
+}
+
+.adoption-list-page .adoption-permission-cell {
+  font-size: 1.1rem;
+}
+
+.adoption-list-page .adoption-permission-ok {
+  color: #2e7d32;
+}
+
+.adoption-list-page .adoption-permission-no {
+  color: #a93226;
+}
+
+.adoption-list-page .adoption-eye {
+  margin-right: 6px;
+  color: #8c6d5b;
+}
+
+.adoption-list-page .adoption-date-cell {
+  font-size: 0.9rem;
+  color: #a97b5f;
+}
+
+.adoption-list-page .adoption-tfoot-info {
+  border-top: 1px solid #eed9c4;
+  padding-top: 18px;
+}
+
+.adoption-list-page .adoption-tfoot-label {
+  font-weight: 800;
+  color: #a97b5f;
+}
+
+.adoption-list-page .adopt-card-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 14px;
+	margin-top: 18px;
+}
+
+.adoption-list-page .adopt-card {
+	flex: 0 1 260px;
+	max-width: 260px;
+	border: 1px solid #e6d4c3;
+	border-radius: 16px;
+	overflow: hidden;
+	background: #fffefb;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 620px) {
+	.adoption-list-page .adopt-card {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}
+
+.adoption-list-page .adopt-card__link {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+.adoption-list-page .adopt-card__thumb {
+	position: relative;
+	background: #fff;
+	overflow: hidden;
+}
+
+.adoption-list-page .adopt-card__img {
+	width: 100%;
+	height: 170px;
+	object-fit: contain;
+	object-position: center;
+	display: block;
+	background: #fffefb;
+}
+
+.adoption-list-page .adopt-card__badges {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.adoption-list-page .adopt-pill {
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid #e6d4c3;
+	border-radius: 999px;
+	padding: 4px 10px;
+	font-size: 0.82rem;
+	font-weight: 900;
+	color: #5b3a29;
+	backdrop-filter: blur(6px);
+}
+
+.adoption-list-page .adopt-card__status {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.adoption-list-page .adopt-card__body {
+	padding: 12px 12px 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.adoption-list-page .adopt-card__title {
+	margin: 0;
+	font-size: 1.05rem;
+	font-weight: 900;
+	color: #5b3a29;
+	line-height: 1.25;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	min-height: 2.7em;
+}
+
+.adoption-list-page .adopt-card__count {
+	margin-left: 6px;
+	font-weight: 900;
+	color: #a97b5f;
+}
+
+.adoption-list-page .adopt-card__meta {
+	margin-top: auto;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	row-gap: 6px;
+	column-gap: 8px;
+	color: #8c6d5b;
+	font-size: 0.92rem;
+}
+
+.adoption-list-page .adopt-card__meta .meta-item i {
+	margin-right: 6px;
+	color: #8c6d5b;
+}
+
+.adoption-list-page .meta-sep {
+	color: #d3bfa6;
+}
+
+.adoption-list-page .adopt-list-footer {
+	margin-top: 18px;
+	padding-top: 16px;
+	border-top: 1px solid #eed9c4;
+}
+
+.adoption-list-page .adopt-list-info {
+	text-align: center;
+	margin-bottom: 10px;
+	color: #8c6d5b;
+	font-weight: 700;
+}
+
+.adoption-list-page .page-subtitle {
+	margin-top: 6px;
+	font-weight: 700;
+	color: #8c6d5b;
+}
+
+.adoption-list-page .adopt-filter-card {
+	margin-top: 12px;
+	border: 1px solid #d3bfa6;
+	border-radius: 14px;
+	padding: 12px 14px;
+	background-color: rgba(255, 255, 255, 0.92);
+}
+
+.adoption-list-page .adopt-filter-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: flex-end;
+}
+
+.adoption-list-page .adopt-filter-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 140px;
+}
+
+.adoption-list-page .adopt-filter-group select.field,
+.adoption-list-page .adopt-filter-group input.field {
+	height: 40px;
+}
+
+.adoption-list-page .adopt-filter-label {
+	font-size: 0.9rem;
+	font-weight: 800;
+	color: #5b3a29;
+}
+
+.adoption-list-page .adopt-filter-search {
+	flex: 1 1 420px;
+	min-width: 280px;
+}
+
+.adoption-list-page .adopt-filter-searchbox {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.adoption-list-page .adopt-filter-searchbox .field {
+	flex: 0 0 auto;
+}
+
+.adoption-list-page .adopt-filter-searchbox input.field {
+	flex: 1 1 220px;
+	min-width: 160px;
+}
+
+.adoption-list-page .adopt-filter-state {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px dashed #e0d0c0;
+}
+
+.adoption-list-page .adopt-filter-hint {
+	color: #8c6d5b;
+	font-weight: 700;
+	text-align: center;
+}
+
+.adoption-list-page .adopt-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+.adoption-list-page .adopt-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 12px;
+	border-radius: 999px;
+	border: 1px solid #e6d4c3;
+	background: #fffefb;
+	text-decoration: none;
+	color: #5b3a29;
+	font-weight: 800;
+	transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.adoption-list-page .adopt-chip:hover {
+	background: #f3eae1;
+	transform: translateY(-1px);
+}
+
+.adoption-list-page .chip-x {
+	font-weight: 900;
+	color: #a97b5f;
+}
+
+.adoption-list-page .adopt-list-topbar {
+	margin-top: 16px;
+}
+
+.adoption-list-page .adopt-card-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+	margin-top: 18px;
+}
+
+@media (max-width: 1200px) {
+	.adoption-list-page .adopt-card-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 860px) {
+	.adoption-list-page .adopt-card-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 620px) {
+	.adoption-list-page .adopt-card-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.adoption-list-page .adopt-card {
+	max-width: none;
+	flex: none;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+	cursor: pointer;
+}
+
+.adoption-list-page .adopt-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.adoption-list-page .adopt-card__thumbLink {
+	display: block;
+}
+
+.adoption-list-page .adopt-card__thumb {
+	flex: 0 0 auto;
+}
+
+.adoption-list-page .adopt-card__body {
+	flex: 1 1 auto;
+}
+
+.adoption-list-page .adopt-card__titleLink {
+	text-decoration: none;
+	color: inherit;
+}
+
+.adoption-list-page .adopt-card__titleLink:hover {
+	text-decoration: underline;
+}
+
+.adoption-list-page .adopt-card__subtitle {
+	margin-top: 0;
+	color: #8c6d5b;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.adoption-list-page .adopt-card__subtitle i {
+	color: #a97b5f;
+}
+
+.adoption-list-page .adopt-card__summary {
+	margin-top: 6px;
+	color: #6f5a4e;
+	font-weight: 700;
+	line-height: 1.4;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.adoption-list-page .adopt-writer-link {
+	color: inherit;
+	text-decoration: none;
+	font-weight: 900;
+}
+
+.adoption-list-page .adopt-writer-link:hover {
+	text-decoration: underline;
+}
+
+.adoption-list-page .adopt-stage-tabs {
+	margin-top: 14px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+@media (max-width: 620px) {
+	.adoption-list-page .adopt-stage-tabs {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		justify-content: flex-start;
+		padding-bottom: 4px;
+	}
+	.adoption-list-page .adopt-stage-tabs::-webkit-scrollbar {
+		height: 4px;
+	}
+	.adoption-list-page .adopt-stage-tabs::-webkit-scrollbar-thumb {
+		background-color: #d3bfa6;
+		border-radius: 2px;
+	}
+	.adoption-list-page .stage-tab {
+		flex: 0 0 auto;
+	}
+}
+
+@media (max-width: 860px) {
+	.adoption-list-page .adopt-filter-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px;
+		align-items: end;
+	}
+	.adoption-list-page .adopt-filter-group {
+		min-width: 0;
+	}
+	.adoption-list-page .adopt-filter-search {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 480px) {
+	.adoption-list-page .adopt-filter-row {
+		grid-template-columns: 1fr;
+	}
+	.adoption-list-page .adopt-filter-searchbox button span,
+	.adoption-list-page .adopt-filter-searchbox a span {
+		display: none;
+	}
+	.adoption-list-page .meta-sep {
+		display: none;
+	}
+	.adoption-list-page .adopt-writer-link {
+		flex: 1 1 100%;
+	}
+}
+
+.adoption-list-page .stage-tab {
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 14px;
+	border-radius: 999px;
+	border: 1px solid #e6d4c3;
+	background: #fffefb;
+	color: #5b3a29;
+	font-weight: 900;
+	transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.adoption-list-page .stage-tab:hover {
+	background: #f3eae1;
+	transform: translateY(-1px);
+}
+
+.adoption-list-page .stage-tab.active {
+	background: #5d3d26;
+	border-color: #c7a17a;
+	color: #fff;
+}

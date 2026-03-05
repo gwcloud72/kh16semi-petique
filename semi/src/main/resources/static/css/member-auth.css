@@ -1,0 +1,160 @@
+/* member-auth.css - 회원가입/아이디·비밀번호 찾기 화면 스타일 */
+.auth-page {
+  margin: 36px auto;
+}
+
+.auth-card {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e6d4c3;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.auth-head {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.auth-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin: 0;
+  color: #5b3a29;
+}
+
+.auth-subtitle {
+  margin-top: 8px;
+  color: #8c6d5b;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.auth-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  justify-content: center;
+}
+
+.auth-actions .btn {
+  margin-right: 0;
+}
+
+.auth-help {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.auth-help a {
+  font-weight: 800;
+  color: #8c6d5b;
+  text-decoration: none;
+}
+
+.auth-help a:hover {
+  text-decoration: underline;
+}
+
+.auth-form .cell label {
+  font-weight: 800;
+}
+
+.auth-form .btn {
+  margin-right: 0;
+}
+
+.auth-hint{
+	margin-top:8px;
+	font-size:13px;
+	color:#8c6d5b;
+	font-weight:700;
+	line-height:1.4;
+}
+
+.auth-note{
+	margin-top:10px;
+	border:1px solid #e0d2c2;
+	background-color:#fffaf7;
+	border-radius:14px;
+	padding:12px;
+	color:#5b3a29;
+	font-weight:700;
+	line-height:1.5;
+}
+
+.auth-note.important{
+	background-color:#fff5f0;
+	border-color:#e7c1b3;
+}
+
+.auth-section{
+	border:1px solid #efe0d1;
+	background-color:#fffaf7;
+	border-radius:16px;
+	padding:14px;
+}
+
+.auth-section + .auth-section{
+	margin-top:14px;
+}
+
+.auth-section__title{
+	font-weight:900;
+	color:#5b3a29;
+	margin-bottom:10px;
+}
+
+.auth-inline{
+	display:flex;
+	gap:10px;
+	align-items:center;
+	flex-wrap:wrap;
+}
+
+.auth-inline .btn{
+	white-space:nowrap;
+}
+
+.auth-inline .auth-btn{
+	width:44px;
+	padding:10px;
+}
+
+.join-grid{
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	gap:16px;
+}
+
+@media (max-width: 900px){
+	.join-grid{
+		grid-template-columns:1fr;
+	}
+}
+
+.join-avatar{
+	display:flex;
+	gap:14px;
+	align-items:flex-start;
+	flex-wrap:wrap;
+}
+
+.join-avatar .img-preview{
+	width:100px;
+	height:100px;
+	border-radius:18px;
+	border:1px solid #e0d2c2;
+	object-fit:contain;
+	object-position:center;
+	background-color:#ffffff;
+}
+
+.join-avatar__actions{
+	flex:1;
+	min-width:240px;
+}

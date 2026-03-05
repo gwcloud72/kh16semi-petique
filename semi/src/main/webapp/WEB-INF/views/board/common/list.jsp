@@ -1,0 +1,109 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%-- [게시판 공통] 목록 화면 --%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<c:set var="pageCss" value="/css/board_list.css" scope="request"/>
+<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+
+
+<div class="container w-1200 board-page">
+
+	<div class="cell center">
+		<h1>${category.categoryName}</h1>
+	</div>
+	<jsp:include page="/WEB-INF/views/board/fragment/notice-top.jsp"></jsp:include>
+
+	<div class="cell center mt-30 mb-50">
+		<form action="list">
+			<div class="search-bar">
+				<select name="column">
+					<option value="board_title" ${pageVO.column == 'board_title' ? 'selected' : ''}>제목</option>
+					<option value="board_writer" ${pageVO.column == 'board_writer' ? 'selected' : ''}>아이디</option>
+					<option value="member_nickname" ${pageVO.column == 'member_nickname' ? 'selected' : ''}>닉네임</option>
+					<option value="header_name" ${pageVO.column == 'header_name' ? 'selected' : ''}>분류</option>
+
+				</select> <input type="text" name="keyword" value="${pageVO.keyword}"
+					required placeholder="검색어 입력">
+
+				<button type="submit" class="btn btn-positive">검색</button>
+			</div>
+		</form>
+
+				<div class="board-actions">
+			<div class="board-sort">
+				<a href="list?orderBy=wtime" class="btn ${orderBy eq 'wtime' ? 'btn-positive' : 'btn-neutral'}">최신순</a>
+				<a href="list?orderBy=view" class="btn ${orderBy eq 'view' ? 'btn-positive' : 'btn-neutral'}">조회순</a>
+				<a href="list?orderBy=like" class="btn ${orderBy eq 'like' ? 'btn-positive' : 'btn-neutral'}">추천순</a>
+			</div>
+			<div class="board-write">
+				<c:choose>
+					<c:when test="${sessionScope.loginId != null}">
+						<a href="write" class="btn btn-positive">글쓰기</a>
+					</c:when>
+					<c:otherwise>
+						<span class="board-login-hint"><a href="${cp}/member/login" class="link">로그인</a>을 해야 글을 작성할 수 있습니다</span>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+	</div>
+
+	<c:choose>
+		<c:when test="${empty boardList}">
+			<div class="no-posts">등록된 글이 없습니다.</div>
+		</c:when>
+		<c:otherwise>
+			<div class="cell">
+				<table class="table table-border table-striped table-hover w-100p">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>분류</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>조회수</th>
+							<th><i id="board-like" class="fa-solid fa-thumbs-up"></i></th>
+							<th>작성일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="boardDto" items="${boardList}">
+							<tr>
+								<td>${boardDto.boardNo}</td>
+								<td>${boardDto.typeHeaderName}</td>
+								<td><a
+									href="detail?boardNo=${boardDto.boardNo}">${boardDto.boardTitle}</a>
+								</td>
+							<td>
+								<c:url var="writerProfileUrl" value="/member/detail">
+									<c:param name="memberNickname" value="${boardDto.memberNickname}"/>
+								</c:url>
+								<a class="profile-link" href="${writerProfileUrl}"><c:out value="${boardDto.memberNickname}"/></a>
+								<c:if test="${not empty boardDto.badgeImage}">${boardDto.badgeImage}</c:if>
+								<c:if test="${not empty boardDto.levelName}">
+									<span class="level-badge">${boardDto.levelName}</span>
+								</c:if>
+							</td>
+								<td>${boardDto.boardView}</td>
+								<td>${boardDto.boardLike}</td>
+								<td>${boardDto.formattedWtime}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="7">검색결과 : ${pageVO.begin} - ${pageVO.end} /
+								${pageVO.dataCount}개</td>
+						</tr>
+
+						<tr>
+							<td colspan="7" class="center"><jsp:include
+									page="/WEB-INF/views/template/pagination.jsp"></jsp:include></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</c:otherwise>
+	</c:choose>
+</div>
+
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

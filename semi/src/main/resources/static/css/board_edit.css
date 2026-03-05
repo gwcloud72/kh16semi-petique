@@ -1,0 +1,58 @@
+/* board_edit.css - 게시글 수정 화면 스타일 */
+body {
+    background-color: #f4ede6;
+    color: #5b3a29;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container.w-800 {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px 35px;
+    border-radius: 15px;
+    background-color: #ffffffdd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  label {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #5b3a29;
+  }
+
+  .field.w-100p {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #c9a66b;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: #5b3a29;
+    box-sizing: border-box;
+  }
+
+  .field.w-100p:focus {
+    outline: none;
+    border-color: #7e5a3c;
+    box-shadow: 0 0 8px #a57a50;
+  }
+
+  .summernote-editor {
+    margin-top: 10px;
+  }
+
+  .mt-40 {
+    margin-top: 40px;
+  }
+
+  .red {
+    color: red;
+  }

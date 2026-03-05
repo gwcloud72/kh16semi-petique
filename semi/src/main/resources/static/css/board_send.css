@@ -1,0 +1,134 @@
+/* board_send.css - 쪽지/메일 전송 관련 화면 스타일 */
+.board-meta {
+	background-color: #fffdf9;
+	border: 2px solid #d8c3a5;
+	border-radius: 12px;
+	padding: 15px 20px;
+	margin: 20px 0;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.board-meta table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.board-meta th {
+	width: 100px;
+	text-align: left;
+	padding: 6px 10px;
+	color: #6b4f34;
+	font-weight: 600;
+}
+
+.board-meta td {
+	padding: 6px 10px;
+	color: #3e3e3e;
+}
+
+.board-title {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #5b3a29;
+	border-bottom: 3px double #d6c2a6;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+
+body {
+	background-color: #f4ede6;
+	color: #5b3a29;
+	margin: 0;
+	padding: 0;
+}
+
+.container.w-800 {
+	max-width: 800px;
+	margin: 40px auto;
+	padding: 30px 35px;
+	border-radius: 15px;
+	background-color: #ffffffdd;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+.meta {
+	font-size: 0.95rem;
+	color: #7a5a44;
+	margin-bottom: 20px;
+}
+
+.content {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	min-height: 200px;
+	border-top: 1px solid #d6c2a6;
+	padding-top: 20px;
+}
+
+.cell.right {
+	text-align: right;
+	margin-top: 30px;
+}
+
+.btn {
+	padding: 10px 20px;
+	font-size: 1rem;
+	border-radius: 10px;
+	font-weight: 600;
+	text-decoration: none;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.btn-edit {
+	background-color: #a67c52;
+	color: #fff5e9;
+	border: none;
+}
+
+.btn-edit:hover {
+	background-color: #ba8f65;
+}
+
+.btn-delete {
+	background-color: #a94442;
+	color: #fff2f0;
+	border: none;
+}
+
+.btn-delete:hover {
+	background-color: #922d2b;
+}
+
+.btn-neutral {
+	background-color: #d9c7b3;
+	color: #5b3a29;
+	border: none;
+}
+
+.btn-neutral:hover {
+	background-color: #cbb7a3;
+}
+
+.badge {
+	display: inline-block;
+	padding: 2px 6px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #fff;
+	background-color: #a67c52;
+	border-radius: 4px;
+	margin-left: 10px;
+	vertical-align: middle;
+}
+
+.reply-editor {
+	width: 100%;
+	resize: none;
+}

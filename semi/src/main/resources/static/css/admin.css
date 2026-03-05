@@ -1,0 +1,125 @@
+/* admin.css - 관리자 페이지 스타일 */
+.admin-page {
+  margin: 28px auto;
+  padding: 26px 28px;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-actions .btn {
+  margin-right: 0;
+}
+
+.admin-subactions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.admin-table {
+  width: 100%;
+}
+
+.admin-table .table {
+  width: 100%;
+}
+
+.admin-form-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-form-row .field {
+  min-width: 220px;
+}
+
+.admin-home-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.admin-home-links .btn {
+  width: 60%;
+  max-width: 420px;
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .admin-home-links .btn {
+    width: 100%;
+  }
+}
+
+.admin-badge-image {
+  font-size: 24px;
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d3bfa6;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #5b3a29;
+  margin: 10px 0 16px 0;
+}
+
+.alert-info {
+  border-color: #c7a17a;
+  background-color: rgba(233, 216, 198, 0.5);
+}
+
+.admin-detail-table th {
+	width: 32%;
+	background-color: rgba(233, 216, 198, 0.55);
+	text-align: left;
+	padding-left: 14px;
+}
+
+.admin-detail-table td {
+	text-align: left;
+	padding-left: 14px;
+}
+
+.admin-section-title {
+	margin: 18px 0 10px;
+	font-weight: 900;
+	font-size: 1.1rem;
+	color: #5b3a29;
+}
+
+.admin-table th.left,
+.admin-table td.left {
+	text-align: left;
+	padding-left: 14px;
+}
