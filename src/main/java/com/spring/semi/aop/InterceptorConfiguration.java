@@ -44,7 +44,11 @@ public class InterceptorConfiguration implements WebMvcConfigurer
 				"/member/detail", "/**/login",
 				"/member/join**", "/member/find**",
 				"/**/profile", "/rest/main/**",
-				"/**/image"
+				"/**/image",
+				"/rest/member/checkId", "/rest/member/checkNickname",
+				"/rest/member/checkDuplication", "/rest/member/certSend",
+				"/rest/member/certCheck", "/rest/member/findSend",
+				"/rest/board/check", "/rest/reply/list"
 				)
 		.order(2);
 
