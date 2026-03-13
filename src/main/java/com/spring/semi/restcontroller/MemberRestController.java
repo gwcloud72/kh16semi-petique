@@ -68,7 +68,7 @@ public class MemberRestController {
 
 		LocalDateTime current = LocalDateTime.now();
 		LocalDateTime sent = findEmail.getCertTime().toLocalDateTime();
-		Duration duration = Duration.between(current, sent);
+		Duration duration = Duration.between(sent, current);
 		if (duration.toSeconds() > 300)
 			return false;
 

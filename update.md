@@ -12,3 +12,9 @@
 "/rest/member/certCheck", "/rest/member/findSend",
 "/rest/board/check", "/rest/reply/list"
 ```
+### 2) 인증번호 만료 시간 계산 수정
+- 이유: Duration 계산 순서가 반대로 되어 있어 만료가 사실상 동작하지 않던 부분을 고쳤습니다.
+- 파일: `src/main/java/com/spring/semi/restcontroller/MemberRestController.java`
+```java
+Duration duration = Duration.between(sent, current);
+```
