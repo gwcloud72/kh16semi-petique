@@ -9,7 +9,7 @@
 			<span>비밀번호 입력</span>
 			<i class="fa-solid fa-asterisk red"></i>
 		</label>
-		<input class="field w-100p" name="member_pw">
+		<input class="field w-100p" type="password" name="memberPw">
 	</div>
 	<button type="submit" class="btn btn-negative">
 		<i class="fa-solid fa-trash-can"></i>

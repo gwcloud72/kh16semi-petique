@@ -18,3 +18,12 @@
 ```java
 Duration duration = Duration.between(sent, current);
 ```
+### 3) 회원 탈퇴 오류 수정
+- 이유 : jsp 의 파라미터 값이 안맞아서 수정하였습니다. 그리고 비밀번호를 틀려도 세션을 지우기때문에 수정하였습니다.
+src/main/java/com/spring/semi/controller/MemberController.java
+```
+boolean deleted = memberService.deleteMember(loginId, memberPw);
+if (!deleted) {
+return "redirect:drop?error";
+}
+```

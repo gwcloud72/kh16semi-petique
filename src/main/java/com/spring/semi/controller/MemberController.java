@@ -286,7 +286,11 @@ public class MemberController {
 			@RequestParam String memberPw
 			) {
 		String loginId = (String) session.getAttribute("loginId");
-		memberService.deleteMember(loginId, memberPw);
+	    boolean deleted = memberService.deleteMember(loginId, memberPw);
+
+	    if (!deleted) {
+	        return "redirect:drop?error";
+	    }
 		session.removeAttribute("loginId");
 		session.removeAttribute("loginLevel");
 		return "/WEB-INF/views/member/thankyou.jsp";

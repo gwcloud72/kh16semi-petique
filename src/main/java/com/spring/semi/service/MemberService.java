@@ -44,8 +44,9 @@ public class MemberService {
     @Transactional
     public boolean deleteMember(String memberId, String memberPw) {
     	MemberDto memberDto = memberDao.selectOne(memberId);
-
-    	if(memberDto.getMemberPw().equals(memberPw) == false) return false;
+ 
+    	 if (memberDto == null) return false;
+    	    if (!memberDto.getMemberPw().equals(memberPw)) return false;
 
     	memberDao.delete(memberId);
 
