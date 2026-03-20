@@ -27,3 +27,17 @@ if (!deleted) {
 return "redirect:drop?error";
 }
 ```
+### 4) 닉네임검사 중복로직 변경
+- 이유: nickname이 아닌 memberid를 체크함
+src/main/java/com/spring/semi/restcontroller/MemberRestController.java
+```
+@PostMapping("/checkDuplication")
+public boolean checkDuplication(
+        @RequestParam String memberId,
+        @RequestParam String memberNickname
+        ) {
+    MemberDto nicknameOwner = memberDao.selectForNickname(memberNickname);
+    if (nicknameOwner == null) return false;
+    return !nicknameOwner.getMemberId().equals(memberId);
+}
+``` 

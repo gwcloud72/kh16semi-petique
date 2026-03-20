@@ -113,7 +113,7 @@ public class MemberRestController {
 	}
 
 
-	@PostMapping("/checkNickname")
+	@PostMapping("/checkNickname") //가입용 닉네임 체크
 	public boolean checkNickname(@RequestParam String memberNickname) {
 		MemberDto findDto = memberDao.selectForNickname(memberNickname);
 		return findDto == null? false : true;
@@ -122,14 +122,13 @@ public class MemberRestController {
 
 	@PostMapping("/checkDuplication")
 	public boolean checkDuplication(
-			@RequestParam String memberId,
-			@RequestParam String memberNickname
-			) {
-		MemberDto findDto = memberDao.selectOne(memberId);
-		if(findDto.getMemberNickname().equals(memberNickname)) return false;
-		return findDto == null? false : true;
+	        @RequestParam String memberId,
+	        @RequestParam String memberNickname
+	        ) {
+	    MemberDto nicknameOwner = memberDao.selectForNickname(memberNickname);
+	    if (nicknameOwner == null) return false;
+	    return !nicknameOwner.getMemberId().equals(memberId);
 	}
-
 
 	@PostMapping("/login")
 	public boolean login(
