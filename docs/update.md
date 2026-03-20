@@ -28,7 +28,10 @@ return "redirect:drop?error";
 }
 ```
 ### 4) 닉네임검사 중복로직 변경
-- 이유: nickname이 아닌 memberid를 체크함
+- 이유: nickname이 아닌 memberid를 체크하고있습니다 
+(1)데이터베이스 닉네임 찾기
+(2) 없으면 (중복아님)  false를 반환합니다
+(3) 중복이면 true를 반환합니다
 src/main/java/com/spring/semi/restcontroller/MemberRestController.java
 ```
 @PostMapping("/checkDuplication")
