@@ -44,6 +44,7 @@ public boolean checkDuplication(
     return !nicknameOwner.getMemberId().equals(memberId);
 }
 ``` 
+
 # 26/03/21 Ver 1.0.5
 ### 5) 분양 완료 로직변경
 - 이유 : 동물 소유주 변경이나 동물 상태 변경시 false만 반환하고 끝날수있어서 보충했습니다.
