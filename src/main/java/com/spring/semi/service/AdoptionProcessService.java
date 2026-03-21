@@ -127,19 +127,23 @@ public class AdoptionProcessService {
         AdoptionApplyVO approved = adoptionApplyDao.selectApprovedByBoardNo(boardNo);
         if (approved == null) return false;
 
-        boolean completed = adoptionApplyDao.completeApproved(boardNo);
-        if (!completed) return false;
+        if (!adoptionApplyDao.completeApproved(boardNo)) {
+            return false;
+        }
 
-		boolean masterUpdated = animalDao.updateMaster(detail.getAnimalNo(), approved.getApplicantId());
-		if (!masterUpdated) return false;
+        if (!animalDao.updateMaster(detail.getAnimalNo(), approved.getApplicantId())) {
+            throw new IllegalStateException("동물 소유자 변경 실패");
+        }
 
         int updated = adoptionBoardDao.updatePermissionToF(boardNo);
-		boolean ok = updated > 0;
-		if (ok) {
-			String url = "/board/adoption/detail?boardNo=" + boardNo;
-			notificationService.notify(approved.getApplicantId(), "ADOPTION_COMPLETE",
-					"분양이 완료 처리되었습니다. 후기 작성도 가능해요.", url);
-		}
-		return ok;
+        if (updated <= 0) {
+            throw new IllegalStateException("분양 완료 상태 반영 실패");
+        }
+
+        String url = "/board/adoption/detail?boardNo=" + boardNo;
+        notificationService.notify(approved.getApplicantId(), "ADOPTION_COMPLETE",
+                "분양이 완료 처리되었습니다. 후기 작성도 가능해요.", url);
+
+        return true;
     }
 }
