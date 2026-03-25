@@ -9,12 +9,16 @@ import com.spring.semi.dao.AdoptionBoardDao;
 import com.spring.semi.dao.AnimalDao;
 import com.spring.semi.dto.AdoptionApplyDto;
 import com.spring.semi.vo.AdoptionApplyVO;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.spring.semi.vo.AdoptDetailVO;
 
 
 /**
  * AdoptionProcessService - 비즈니스 로직을 담당하는 서비스.
  */
+@Slf4j
 @Service
 public class AdoptionProcessService {
 
@@ -117,33 +121,60 @@ public class AdoptionProcessService {
 
     @Transactional
     public boolean complete(int boardNo, String ownerId) {
+        // (1) 로그인 여부 확인
         if (ownerId == null) return false;
 
+        // (2) 게시글 정보 조회
         AdoptDetailVO detail = adoptionBoardDao.selectAdoptDetail(boardNo);
         if (detail == null) return false;
+
+        // (3) 작성자 본인인지 확인
         if (!ownerId.equals(detail.getBoardWriter())) return false;
+
+        // (4) 이미 완료된 글인지 확인
         if ("f".equals(detail.getAnimalPermission())) return false;
 
+        // (5) 승인된 신청 건 조회
         AdoptionApplyVO approved = adoptionApplyDao.selectApprovedByBoardNo(boardNo);
         if (approved == null) return false;
 
-        if (!adoptionApplyDao.completeApproved(boardNo)) {
-            return false;
-        }
+        // (6) 신청 상태를 완료로 변경
+        boolean completed = adoptionApplyDao.completeApproved(boardNo);
+        if (!completed) return false;
 
-        if (!animalDao.updateMaster(detail.getAnimalNo(), approved.getApplicantId())) {
+        // (7) 동물 소유자 변경
+        // 핵심 데이터라 실패하면 롤백되도록 예외 처리
+        boolean masterUpdated = animalDao.updateMaster(
+            detail.getAnimalNo(),
+            approved.getApplicantId()
+        );
+        if (!masterUpdated) {
             throw new IllegalStateException("동물 소유자 변경 실패");
         }
 
+        // (8) 게시글 상태를 완료로 변경
         int updated = adoptionBoardDao.updatePermissionToF(boardNo);
         if (updated <= 0) {
             throw new IllegalStateException("분양 완료 상태 반영 실패");
         }
 
-        String url = "/board/adoption/detail?boardNo=" + boardNo;
-        notificationService.notify(approved.getApplicantId(), "ADOPTION_COMPLETE",
-                "분양이 완료 처리되었습니다. 후기 작성도 가능해요.", url);
+        // (9) 완료 알림 발송
+        // 알림은 부가 기능이라 실패해도 본 처리는 유지
+        try {
+            String url = "/board/adoption/detail?boardNo=" + boardNo;
+            notificationService.notify(
+                approved.getApplicantId(),
+                "ADOPTION_COMPLETE",
+                "분양이 완료 처리되었습니다. 후기 작성도 가능해요.",
+                url
+            );
+        }
+        catch (Exception e) {
+        	log.error("분양 완료 알림 실패 - 게시글 번호: {}", boardNo, e);
+        }
 
+        // (10) 최종 성공 반환
         return true;
     }
+
 }
